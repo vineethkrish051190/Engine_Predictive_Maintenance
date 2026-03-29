@@ -35,7 +35,7 @@ Huggingface Authentication
 # HUGGING FACE AUTHENTICATION
 
 import os
-from huggingface_hub import login
+from huggingface_hub import login, HfApi
 
 # Safely pull the token from the GitHub Actions hidden environment
 hf_token = os.environ.get("HF_TOKEN")
