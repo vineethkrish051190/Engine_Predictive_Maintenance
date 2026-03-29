@@ -43,15 +43,15 @@ login(token=hf_token)
 
 # Define your Hugging Face username and repository names
 HF_USERNAME = "vnsonly05"
-DATASET_REPO_ID = f"vnsonly05/engine-condition-data"
-MODEL_REPO_ID = f"vnsonly05/engine-condition-rf-model"
+DATASET_REPO_ID = "vnsonly05/engine-condition-data"
+MODEL_REPO_ID = "vnsonly05/engine-condition-rf-model"
 
 api = HfApi()
 
 """# *Data Registration*"""
 
 # Create a master folder and "data" subfolder
-master_folder = "enginepredict  "
+master_folder = "enginepredict"
 data_folder = os.path.join(master_folder, "data")
 os.makedirs(data_folder, exist_ok=True)
 print(f"Created folders: {data_folder}")
