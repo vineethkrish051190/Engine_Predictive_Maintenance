@@ -22,7 +22,7 @@ Provide data-driven insights to manufacturers and fleet operators for better dec
 # *Libraries Installation*
 """
 
-!pip install datasets huggingface_hub mlflow scikit-learn pandas matplotlib seaborn joblib streamlit
+#!pip install datasets huggingface_hub mlflow scikit-learn pandas matplotlib seaborn joblib streamlit
 
 from xgboost import XGBClassifier
 
@@ -78,8 +78,8 @@ df = pd.read_csv(target_csv_path)
 
 # Data Overview
 print("\nData Overview:")
-display(df.info())
-display(df.describe())
+print(df.info())
+print(df.describe())
 
 # Separate column types for plotting
 numerical_cols = ['Engine rpm', 'Lub oil pressure', 'Fuel pressure', 'Coolant pressure', 'lub oil temp', 'Coolant temp']
@@ -99,7 +99,7 @@ axes[1].pie(engine_counts, labels=['Healthy (1)', 'Faulty (0)'],
 axes[1].set_title(f'Pie Chart: {target_col}')
 
 plt.tight_layout()
-plt.show()
+#plt.show()
 
 """UNIVARIATE ANALYSIS: Numerical Variables"""
 
@@ -117,7 +117,7 @@ for col in numerical_cols:
     axes[1].set_title(f'Boxplot: {col}')
 
     plt.tight_layout()
-    plt.show()
+    #plt.show()
 
 """BIVARIATE ANALYSIS"""
 
@@ -129,7 +129,8 @@ for i, col in enumerate(numerical_cols, 1):
     sns.boxplot(data=df, x=target_col, y=col, palette='Set2')
     plt.title(f'{col} vs {target_col}')
 plt.tight_layout()
-plt.show()
+
+#plt.show()
 
 # Bivariate Scatterplot Example: RPM vs Temperatures colored by Engine Condition
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
@@ -139,7 +140,7 @@ axes[0].set_title('Engine RPM vs Coolant Temp')
 sns.scatterplot(data=df, x='Engine rpm', y='lub oil temp', hue=target_col, alpha=0.6, palette='Set1', ax=axes[1])
 axes[1].set_title('Engine RPM vs Lub Oil Temp')
 plt.tight_layout()
-plt.show()
+#plt.show()
 
 """MULTIVARIATE ANALYSIS"""
 
@@ -147,7 +148,9 @@ plt.show()
 print("Generating Pairplot (This might take a few seconds)...")
 sns.pairplot(df, hue=target_col, palette='Set2', corner=True, diag_kind='kde')
 plt.suptitle('Pairplot of All Numerical Variables grouped by Target', y=1.02)
-plt.show()
+#
+
+#plt.show()
 
 # 2. Correlation Heatmap
 print("Generating Correlation Heatmap...")
@@ -159,7 +162,7 @@ mask = np.triu(np.ones_like(corr, dtype=bool))
 
 sns.heatmap(corr, mask=mask, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5, vmin=-1, vmax=1)
 plt.title('Multivariate Analysis: Feature Correlation Heatmap')
-plt.show()
+#plt.show()
 
 """EDA INSIGHTS & OBSERVATIONS:
 1. Target Distribution: The target variable (Engine Condition) is relatively balanced, as seen in the Pie Chart.
