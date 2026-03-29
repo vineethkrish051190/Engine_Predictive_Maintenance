@@ -39,6 +39,8 @@ from huggingface_hub import login, HfApi
 from datasets import Dataset, DatasetDict, load_dataset  # <--- ADD THIS LINE
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Safely pull the token from the GitHub Actions hidden environment
 hf_token = os.environ.get("HF_TOKEN")
