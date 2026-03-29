@@ -65,7 +65,7 @@ print(f"Created folders: {data_folder}")
 target_csv_path = "engine_data.csv"
 print(f"Loading dataset directly from: {target_csv_path}")
 
-raw_dataset = Dataset.from_csv(target_csv_path))
+raw_dataset = Dataset.from_csv(target_csv_path)
 print("Pushing raw dataset to Hugging Face Hub...")
 # Note: This will create a new dataset repo on your HF account
 raw_dataset.push_to_hub(DATASET_REPO_ID, private=False)
