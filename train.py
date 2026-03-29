@@ -34,8 +34,12 @@ Huggingface Authentication
 
 # HUGGING FACE AUTHENTICATION
 
+import os
 from huggingface_hub import login
-login(token="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")
+
+# Safely pull the token from the GitHub Actions hidden environment
+hf_token = os.environ.get("HF_TOKEN")
+login(token=hf_token)
 
 # Define your Hugging Face username and repository names
 HF_USERNAME = "vnsonly05"
