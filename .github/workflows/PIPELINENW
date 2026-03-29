@@ -27,7 +27,7 @@ jobs:
     - name: Install ML Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pandas scikit-learn xgboost datasets huggingface_hub mlflow joblib
+        pip install pandas scikit-learn xgboost datasets huggingface_hub mlflow joblib matplotlib seaborn
 
     - name: Execute Machine Learning Pipeline (Data Prep & Model Building)
       env:
