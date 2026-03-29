@@ -36,6 +36,9 @@ Huggingface Authentication
 
 import os
 from huggingface_hub import login, HfApi
+from datasets import Dataset, DatasetDict, load_dataset  # <--- ADD THIS LINE
+import pandas as pd
+import numpy as np
 
 # Safely pull the token from the GitHub Actions hidden environment
 hf_token = os.environ.get("HF_TOKEN")
@@ -58,13 +61,11 @@ print(f"Created folders: {data_folder}")
 
 """Upload the csv file to data folder"""
 
-# Load data into Hugging Face Dataset format and register (Push to Hub)
-target_csv_path = os.path.join(data_folder, "engine_data.csv")
-if os.path.exists(target_csv_path):
-    print(f"Found dataset directly at: {target_csv_path}")
-else:
-    print(f"WARNING: Please upload 'engine_data.csv' directly into the '{data_folder}' folder in the file explorer.")
-raw_dataset = Dataset.from_csv(target_csv_path)
+# Read the dataset directly from the GitHub repository root
+target_csv_path = "engine_data.csv"
+print(f"Loading dataset directly from: {target_csv_path}")
+
+raw_dataset = Dataset.from_csv(target_csv_path))
 print("Pushing raw dataset to Hugging Face Hub...")
 # Note: This will create a new dataset repo on your HF account
 raw_dataset.push_to_hub(DATASET_REPO_ID, private=False)
