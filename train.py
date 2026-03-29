@@ -462,3 +462,4 @@ except Exception as e:
 
 4. Implement Rule-Based Dashboards Immediately: While the ML model undergoes improvements, the business should use the findings from the Bivariate EDA to set up hard-coded safety alerts. For example, if the boxplots showed that a healthy engine rarely exceeds a specific Coolant Temperature, set up an automatic telemetry dashboard alert to trigger if a kart crosses that exact threshold, completely independent of the Machine Learning model.
 """
+# triggering a new run
